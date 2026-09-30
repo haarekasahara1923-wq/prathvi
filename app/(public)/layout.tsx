@@ -2,13 +2,14 @@ import { Toaster } from "react-hot-toast";
 import Navbar from "@/components/public/Navbar";
 import Footer from "@/components/public/Footer";
 import WhatsAppButton from "@/components/public/WhatsAppButton";
+import AnnouncementBar from "@/components/public/AnnouncementBar";
 import { prisma } from "@/lib/db";
 import ClientRefresh from "@/components/public/ClientRefresh";
 
 export const revalidate = 0;
 
 async function getLayoutData() {
-  const [contact, colleges] = await Promise.all([
+  const [contact, colleges, announcement] = await Promise.all([
     prisma.contactDetails.findFirst(),
     prisma.college.findMany({
       where: { isActive: true },
@@ -22,8 +23,12 @@ async function getLayoutData() {
         },
       },
     }),
+    prisma.announcement.findFirst({
+      where: { isActive: true },
+      orderBy: { createdAt: "desc" },
+    }),
   ]);
-  return { contact, colleges };
+  return { contact, colleges, announcement };
 }
 
 export default async function PublicLayout({
@@ -31,12 +36,14 @@ export default async function PublicLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { contact, colleges } = await getLayoutData();
+  const { contact, colleges, announcement } = await getLayoutData();
 
   return (
     <div className="flex flex-col min-h-screen">
+      <AnnouncementBar announcement={announcement} />
       <Navbar />
-      <main className="flex-1 pt-16">{children}</main>
+      {/* Pad top to account for navbar and announcement bar */}
+      <main className="flex-1 pt-0">{children}</main>
       <Footer contact={contact} />
       {contact?.whatsappNumber && (
         <WhatsAppButton

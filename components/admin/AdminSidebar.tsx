@@ -26,6 +26,7 @@ const navItems = [
   { href: "/admin/contact", label: "Contact Details", icon: Phone },
   { href: "/admin/gallery", label: "Gallery", icon: Images },
   { href: "/admin/enquiries", label: "Enquiries", icon: MessageSquare },
+  { href: "/admin/announcements", label: "Announcements", icon: MessageSquare },
 ];
 
 export default function AdminSidebar() {

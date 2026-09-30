@@ -138,3 +138,12 @@ enum EnquiryStatus {
   CONTACTED
   CLOSED
 }
+
+model Announcement {
+  id        String   @id @default(cuid())
+  text      String   @db.Text
+  link      String?
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
