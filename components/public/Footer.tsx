@@ -39,7 +39,7 @@ export default function Footer({ contact }: FooterProps) {
       <div className="container-custom pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center"
@@ -54,9 +54,9 @@ export default function Footer({ contact }: FooterProps) {
                 <div className="text-amber-400 text-sm">of College</div>
               </div>
             </div>
-            <p className="text-blue-200 text-sm leading-relaxed mb-4">
+            <p className="text-blue-200 text-sm leading-relaxed mb-6 max-w-md">
               Premier educational institution in Gwalior, MP offering
-              professional and vocational courses for a brighter future.
+              professional and vocational courses for a brighter future. We are dedicated to shaping leaders of tomorrow with state-of-the-art facilities and experienced faculty.
             </p>
             {/* Social Links */}
             <div className="flex gap-3">
@@ -119,7 +119,7 @@ export default function Footer({ contact }: FooterProps) {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="lg:col-span-1">
             <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">
               Quick Links
             </h3>
@@ -128,7 +128,7 @@ export default function Footer({ contact }: FooterProps) {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-blue-200 text-sm hover:text-amber-400 transition-colors flex items-center gap-1"
+                    className="text-blue-200 text-sm hover:text-amber-400 transition-colors flex items-center gap-2"
                   >
                     <ExternalLink size={12} />
                     {link.label}
@@ -139,11 +139,11 @@ export default function Footer({ contact }: FooterProps) {
           </div>
 
           {/* Contact Info */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-1">
             <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">
               Contact Information
             </h3>
-            <div className="space-y-3">
+            <div className="space-y-4">
               {contact?.address && (
                 <div className="flex gap-3 text-sm text-blue-200">
                   <MapPin size={16} className="text-amber-400 mt-0.5 flex-shrink-0" />
@@ -174,7 +174,7 @@ export default function Footer({ contact }: FooterProps) {
                       <a
                         key={email}
                         href={`mailto:${email}`}
-                        className="block hover:text-amber-400 transition-colors"
+                        className="block hover:text-amber-400 transition-colors break-all"
                       >
                         {email}
                       </a>

@@ -72,14 +72,14 @@ export default function Navbar() {
             <div>
               <div
                 className={`font-bold text-sm leading-tight transition-colors ${
-                  scrolled ? "text-blue-900" : "text-blue-900"
+                  scrolled ? "text-blue-900" : "text-white"
                 }`}
               >
                 Prathvi Group
               </div>
               <div
                 className={`text-xs transition-colors ${
-                  scrolled ? "text-amber-600" : "text-amber-600"
+                  scrolled ? "text-amber-600" : "text-amber-300"
                 }`}
               >
                 of College
@@ -95,8 +95,12 @@ export default function Navbar() {
                 href={link.href}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                   pathname === link.href
-                    ? "bg-blue-50 text-blue-900 font-semibold"
-                    : "text-slate-700 hover:text-blue-900 hover:bg-blue-50"
+                    ? scrolled
+                      ? "bg-blue-50 text-blue-900 font-semibold"
+                      : "bg-white/20 text-white font-semibold"
+                    : scrolled
+                    ? "text-slate-700 hover:text-blue-900 hover:bg-blue-50"
+                    : "text-white/90 hover:text-white hover:bg-white/10"
                 }`}
                 aria-current={pathname === link.href ? "page" : undefined}
               >
@@ -115,7 +119,9 @@ export default function Navbar() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg text-slate-700 hover:bg-blue-50 transition-colors"
+            className={`md:hidden p-2 rounded-lg transition-colors ${
+              scrolled ? "text-slate-700 hover:bg-blue-50" : "text-white hover:bg-white/10"
+            }`}
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
           >

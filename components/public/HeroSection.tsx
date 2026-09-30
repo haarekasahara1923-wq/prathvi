@@ -9,8 +9,9 @@ export default function HeroSection() {
     <section
       className="relative min-h-screen flex items-center overflow-hidden"
       style={{
-        background:
-          "linear-gradient(135deg, #0f2240 0%, #1e3a5f 40%, #1a4080 70%, #0d1b2e 100%)",
+        backgroundImage: `linear-gradient(135deg, rgba(15, 34, 64, 0.9) 0%, rgba(30, 58, 95, 0.8) 50%, rgba(13, 27, 46, 0.9) 100%), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
       }}
     >
       {/* Background decorative elements */}
