@@ -2,151 +2,103 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { GraduationCap, ChevronDown, Star, MapPin } from "lucide-react";
+import { GraduationCap, ArrowRight, Play, Star, MapPin } from "lucide-react";
+import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section
-      className="relative min-h-screen flex items-center overflow-hidden"
-      style={{
-        backgroundImage: `linear-gradient(135deg, rgba(15, 34, 64, 0.9) 0%, rgba(30, 58, 95, 0.8) 50%, rgba(13, 27, 46, 0.9) 100%), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div
-          className="absolute top-20 right-10 w-72 h-72 rounded-full opacity-10"
-          style={{
-            background: "radial-gradient(circle, #f59e0b 0%, transparent 70%)",
-          }}
+    <section className="relative min-h-[95vh] flex items-center overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/hero-bg.jpg"
+          alt="Prathvi Group of College Campus"
+          fill
+          priority
+          className="object-cover object-center transform scale-105"
         />
-        <div
-          className="absolute bottom-20 left-10 w-96 h-96 rounded-full opacity-5"
-          style={{
-            background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)",
-          }}
-        />
-        {/* Grid pattern */}
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-            backgroundSize: "60px 60px",
-          }}
-        />
-        {/* Floating orbs */}
-        <motion.div
-          className="absolute top-1/4 right-1/4 w-4 h-4 rounded-full bg-amber-400 opacity-60"
-          animate={{ y: [0, -20, 0], opacity: [0.6, 1, 0.6] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-1/3 left-1/3 w-3 h-3 rounded-full bg-blue-400 opacity-40"
-          animate={{ y: [0, 20, 0], opacity: [0.4, 0.8, 0.4] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        />
-        <motion.div
-          className="absolute top-1/2 right-1/3 w-2 h-2 rounded-full bg-white opacity-40"
-          animate={{ y: [0, -15, 0] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/40 to-slate-950/90"></div>
       </div>
 
-      <div className="container-custom relative z-10 py-24">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
+      <div className="container-custom relative z-10 pt-20 pb-16 w-full">
+        <div className="max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 text-sm font-medium text-amber-300"
-            style={{
-              background: "rgba(245, 158, 11, 0.15)",
-              border: "1px solid rgba(245, 158, 11, 0.3)",
-            }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 glass-dark text-sm font-medium text-amber-400 border border-amber-500/30"
           >
-            <Star size={14} className="text-amber-400" />
-            Premier Educational Institution in Gwalior, MP
+            <Star size={14} className="text-amber-400 fill-amber-400" />
+            <span className="tracking-wide uppercase text-xs font-bold">Premier Institution in Gwalior</span>
           </motion.div>
 
-          {/* Main Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight"
+            className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-[1.1] tracking-tight"
           >
-            Prathvi Group{" "}
-            <span
-              style={{
-                background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              of College
+            Shape Your <br className="hidden md:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
+              Future With Us
             </span>
           </motion.h1>
 
-          {/* Tagline */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-xl md:text-2xl text-blue-200 mb-4 font-medium"
+            className="text-lg md:text-xl text-slate-300 mb-8 font-medium max-w-2xl leading-relaxed"
           >
-            Shaping Futures, Building Leaders
+            Join a legacy of excellence. Prathvi Group of College offers world-class education, state-of-the-art facilities, and diverse courses to build leaders of tomorrow.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="flex items-center justify-center gap-2 text-blue-300 text-sm mb-10"
+            className="flex flex-col sm:flex-row gap-4 mb-10"
           >
-            <MapPin size={14} />
-            <span>Vill. Khureri, Behind Devraj Hospital, Morar, Gwalior (MP)</span>
-          </motion.div>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          >
-            <Link href="/colleges" className="btn-accent text-base px-8 py-3">
-              <GraduationCap size={20} />
-              Explore Colleges
+            <Link href="/colleges" className="btn-accent text-base px-8 py-4 w-full sm:w-auto">
+              Explore Courses
+              <ArrowRight size={18} />
             </Link>
             <Link
               href="/contact#enquiry-form"
-              className="btn-outline text-base px-8 py-3 border-white/40 text-white hover:bg-white/10 hover:border-white"
+              className="btn-outline white-outline text-base px-8 py-4 w-full sm:w-auto glass-panel hover:bg-white hover:text-slate-900 border-none"
             >
-              Enquire Now
+              <GraduationCap size={18} className="mr-2" />
+              Apply for Admission
             </Link>
           </motion.div>
 
-          {/* Scroll indicator */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.5 }}
-            className="mt-16 flex justify-center"
+            transition={{ duration: 1, delay: 0.8 }}
+            className="flex items-center gap-4 text-slate-400 text-sm font-medium"
           >
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="text-white/40"
-            >
-              <ChevronDown size={24} />
-            </motion.div>
+            <div className="flex -space-x-3">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="w-10 h-10 rounded-full border-2 border-slate-900 bg-slate-800 flex items-center justify-center overflow-hidden">
+                  <Image src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="Student" width={40} height={40} />
+                </div>
+              ))}
+              <div className="w-10 h-10 rounded-full border-2 border-slate-900 bg-amber-500 flex items-center justify-center text-white text-xs font-bold z-10">
+                5k+
+              </div>
+            </div>
+            <div>
+              <p className="text-white font-bold">5,000+ Students</p>
+              <p className="text-xs">Trust Prathvi Group</p>
+            </div>
           </motion.div>
         </div>
       </div>
+      
+      {/* Decorative gradient blur */}
+      <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[100px] -z-0 pointer-events-none mix-blend-screen"></div>
     </section>
   );
 }
